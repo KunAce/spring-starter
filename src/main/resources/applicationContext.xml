@@ -20,5 +20,7 @@
     </bean>
     <bean class = "Book" id = "book4" p:id="4" p:name="Xiyouji" p:price="33"></bean>
     <bean class = "OkHttpUtils" factory-method="getInstance" id = "okHttpClient"></bean>
+<!--    <bean class=" OkHttpUtils" id="okHttpUtils"/>-->
+<!--    <bean class="okhttp3.OkHttpClient" factory-bean="okHttpUtils" factory-method="getInstance" id="okHttpClient"></bean>-->
 </beans>
 
