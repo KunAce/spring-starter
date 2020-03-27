@@ -22,5 +22,45 @@
     <bean class = "OkHttpUtils" factory-method="getInstance" id = "okHttpClient"></bean>
 <!--    <bean class=" OkHttpUtils" id="okHttpUtils"/>-->
 <!--    <bean class="okhttp3.OkHttpClient" factory-bean="okHttpUtils" factory-method="getInstance" id="okHttpClient"></bean>-->
+    <bean class="User" id = "user">
+        <property name="cat" ref="cat1" />
+        <property name="favorites">
+            <array>
+                <value>Football</value>
+                <value>BasketBall</value>
+                <value>PingPong</value>
+            </array>
+        </property>
+        <property name="cats">
+            <list>
+                <ref bean="cat1" />
+                <ref bean="cat2" />
+                <bean class="Cat" id="cat3">
+                    <property name="name" value ="Xiaohua" />
+                    <property name="color" value="Huase" />
+                </bean>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="age" value="99" />
+                <entry key="name" value="springtest"/>
+            </map>
+        </property>
+        <property name="info">
+            <props>
+                <prop key="age">99</prop>
+                <prop key="name">sprinttest</prop>
+            </props>
+        </property>
+    </bean>
+    <bean class="Cat" id="cat1">
+        <property name="name" value="LittleWhite" />
+        <property name="color" value="White" />
+    </bean>
+    <bean class="Cat" id="cat2">
+        <property name="name" value="LittleBlack" />
+        <property name="color" value="Black" />
+    </bean>
 </beans>
 
