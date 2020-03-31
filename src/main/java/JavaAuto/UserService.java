@@ -9,11 +9,11 @@ import java.util.List;
 @Service
 public class UserService {
 
-//    @Autowired
-//    UserDao userDao;
-//    public String hello() {
-//        return userDao.hello();
-//    }
+    @Autowired
+    UserDao userDao;
+    public String hello() {
+        return userDao.hello();
+    }
 
     public List<String> getAllUser() {
         List<String> users = new ArrayList<>();
