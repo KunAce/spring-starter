@@ -22,7 +22,7 @@
     <bean class = "OkHttpUtils" factory-method="getInstance" id = "okHttpClient"></bean>
 <!--    <bean class=" OkHttpUtils" id="okHttpUtils"/>-->
 <!--    <bean class="okhttp3.OkHttpClient" factory-bean="okHttpUtils" factory-method="getInstance" id="okHttpClient"></bean>-->
-    <bean class="User" id = "user">
+    <bean class="User" name="user,user1,user2,user3" scope="prototype">
         <property name="cat" ref="cat1" />
         <property name="favorites">
             <array>
