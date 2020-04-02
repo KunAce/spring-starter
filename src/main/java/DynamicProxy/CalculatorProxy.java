@@ -1,4 +1,4 @@
-package AopPractice;
+package DynamicProxy;
 
 import org.springframework.cglib.proxy.InvocationHandler;
 import org.springframework.cglib.proxy.Proxy;
@@ -6,8 +6,8 @@ import org.springframework.cglib.proxy.Proxy;
 import java.lang.reflect.Method;
 
 public class CalculatorProxy {
-    public static Object getInstance(final MyCalculatorImpl myCalculator) {
-        return Proxy.newProxyInstance(CalculatorProxy.class.getClassLoader(), myCalculator.getClass().getInterfaces(), new InvocationHandler() {
+    public static Object getInstance(final MyCalculatorImpl myCalculatorImpl) {
+        return Proxy.newProxyInstance(CalculatorProxy.class.getClassLoader(), myCalculatorImpl.getClass().getInterfaces(), new InvocationHandler() {
             /**
              * @param proxy
              * @param method
@@ -17,7 +17,7 @@ public class CalculatorProxy {
              */
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 System.out.println(method.getName() + "Start implementing......");
-                Object invoke = method.invoke(myCalculator, args);
+                Object invoke = method.invoke(myCalculatorImpl, args);
                 System.out.println(method.getName() + "Complete implementing");
                 return invoke;
             }
