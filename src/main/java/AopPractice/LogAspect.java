@@ -14,7 +14,18 @@ public class LogAspect {
      * Define the pointcut
      */
     @Pointcut("@annotation(Action)")
-    public void pointcut(){}
+    public void pointcut2(){}
+
+    /**
+     * Define the pointcut
+     * First * : target method returns any value
+     * Second * : any class in the package
+     * Third * : any method in the class
+     * Last two .. : any param, any number, any type
+     */
+
+    @Pointcut("execution(* AopPractice.*.*(..))")
+    public void pointcut() {}
 
     /**
      * @param joinPoint contains the key info of the target method
