@@ -35,7 +35,7 @@ public class LogAspect {
     public void before(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
-        System.out.println(name + "Start implementing the method...");
+        System.out.println(name + " method starts implementing...");
     }
 
     /**
@@ -46,7 +46,7 @@ public class LogAspect {
     public void after(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
-        System.out.println(name + "Complete implementing the method...");
+        System.out.println(name + " method completes implementing...");
     }
 
     /**
@@ -58,7 +58,7 @@ public class LogAspect {
     public void returning(JoinPoint joinPoint, Integer r) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
-        System.out.println(name + "The method returns: " + r);
+        System.out.println(name + " method returns: " + r);
     }
 
     /**
@@ -70,7 +70,7 @@ public class LogAspect {
     public void afterThrowing(JoinPoint joinPoint, Exception e) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
-        System.out.println(name + "The method throws an exception: " + e.getMessage());
+        System.out.println(name + " method throws an exception: " + e.getMessage());
     }
 
     /**

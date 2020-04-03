@@ -8,13 +8,13 @@ public class LogAspect {
     public void before(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
-        System.out.println(name + "Start implementing......");
+        System.out.println(name + " method starts implementing......");
     }
 
     public void after(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
-        System.out.println(name + "Complete the implementation......");
+        System.out.println(name + " method completes the implementation......");
     }
 
     public void returning(JoinPoint joinPoint, Integer r) {

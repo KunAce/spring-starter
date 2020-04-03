@@ -7,7 +7,7 @@ public class MyCalculatorImpl {
     }
 
     public void min(int a, int b) {
-        System.out.println(a + '-' + b + "=" + (a - b));
+        System.out.println(a + "-" + b + "=" + (a - b));
     }
 
 }

@@ -7,6 +7,6 @@ public class Main {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContextAopXML.xml");
         MyCalculatorImpl myCalculator = ctx.getBean(MyCalculatorImpl.class);
         myCalculator.add(5,6);
-        myCalculator.min(9,7);
+        myCalculator.min(10,7);
     }
 }
