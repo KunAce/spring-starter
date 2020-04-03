@@ -11,10 +11,16 @@ import org.springframework.stereotype.Component;
 public class LogAspect {
 
     /**
+     * Define the pointcut
+     */
+    @Pointcut("@annotation(Action)")
+    public void pointcut(){}
+
+    /**
      * @param joinPoint contains the key info of the target method
      * @Before means this is a 'before' advice, which runs before the method execution
      */
-    @Before(value = "@annotation(Action)")
+    @Before(value = "pointcut()")
     public void before(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
@@ -25,7 +31,7 @@ public class LogAspect {
      * @param joinPoint contains the key info of the target method
      * @After means this is a 'after' advice, which runs after the method execution
      */
-    @After("@annotation(Action)")
+    @After("pointcut()")
     public void after(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
@@ -37,7 +43,7 @@ public class LogAspect {
      * @AfterReturning only if the method completes successfully. 'returning' in this annotation means the variable of returned value from the target method
      *                 The type fo the returned value from the target method should be the same with the type of the returned parameter in this method.
      */
-    @AfterReturning(value = "@annotation(Action)", returning = "r")
+    @AfterReturning(value = "pointcut()", returning = "r")
     public void returning(JoinPoint joinPoint, Integer r) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
@@ -49,7 +55,7 @@ public class LogAspect {
      * @param joinPoint
      * @param e the exception thrown by the target method.
      */
-    @AfterThrowing(value = "@annotation(Action)", throwing = "e")
+    @AfterThrowing(value = "pointcut()", throwing = "e")
     public void afterThrowing(JoinPoint joinPoint, Exception e) {
         Signature signature = joinPoint.getSignature();
         String name = signature.getName();
@@ -61,7 +67,7 @@ public class LogAspect {
      * @param pjp
      * @return In this case, it is better to define the type of the returned value to be 'Object'.
      */
-    @Around("@annotation(Action)")
+    @Around("pointcut()")
     public Object around(ProceedingJoinPoint pjp) {
         Object proceed = null;
         try {
