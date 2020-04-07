@@ -2,7 +2,7 @@ package JavaTransaction;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class MainAnnotation {
@@ -11,7 +11,7 @@ public class MainAnnotation {
 
     @Before
     public void before(){
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContextTransactionAnnotation.xml");
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(JdbcConfig.class);
         jdbcTemplate = ctx.getBean(JdbcTemplate.class);
         userService = ctx.getBean(UserService.class);
     }

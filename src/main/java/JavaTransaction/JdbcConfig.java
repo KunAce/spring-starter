@@ -1,13 +1,18 @@
 package JavaTransaction;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 @Configuration
+@ComponentScan(basePackages = "JavaTransaction")
+@EnableTransactionManagement
 public class JdbcConfig {
     @Bean
     DataSource dataSource() {
@@ -22,4 +27,10 @@ public class JdbcConfig {
     JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSource());
     }
+
+    @Bean
+    DataSourceTransactionManager dataSourceTransactionManager() {
+        return new DataSourceTransactionManager(dataSource());
+    }
+
 }
